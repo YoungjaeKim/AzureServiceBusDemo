@@ -7,19 +7,36 @@
 			<RowDefinition Height="29*"/>
 			<RowDefinition Height="362*"/>
 		</Grid.RowDefinitions>
-		
-		<StackPanel HorizontalAlignment="Left" Height="50" Margin="11,4,0,0" VerticalAlignment="Top" Width="100"/>
 
-		<Grid HorizontalAlignment="Stretch" Height="300" Margin="29,5,0,0" VerticalAlignment="Top" Width="523" Grid.Row="1">
+		<StackPanel Orientation="Horizontal">
+			<Label Content="Connection String"/>
+			<TextBox x:Name="TextBoxConnectionString" Height="23" Width="401" Margin="0,3" MaxLines="1" />
+			<Button x:Name="ButtonConnect" Content="Connect" Width="75" Margin="10,0,0,0" Click="ButtonConnect_OnClick" />
+		</StackPanel>
+
+		<Grid HorizontalAlignment="Stretch" Height="331" Margin="10,5,10,25" Grid.Row="1">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="95*"/>
-				<ColumnDefinition Width="129*"/>
-				<ColumnDefinition Width="107*"/>
+				<ColumnDefinition Width="150*"/>
+				<ColumnDefinition Width="124*"/>
+				<ColumnDefinition Width="249*"/>
 			</Grid.ColumnDefinitions>
-			<Button Content="Send >>" HorizontalAlignment="Left" Margin="31,143,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-			<ListBox Height="100" Margin="7,44,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
-			<ListBox Height="100" Margin="22,74,0,0" VerticalAlignment="Top" Width="100"/>
+			<Button x:Name="ButtonSend" Click="ButtonSend_OnClick" Content="Send >>" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="119" Grid.Column="1" Height="54"/>
+			<Grid Grid.Column="2" Margin="0,20,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				<ListBox x:Name="ListBoxGildong" Grid.Column="0" Margin="0,0,5,0" />
+				<ListBox x:Name="ListBoxYoungjae" Grid.Column="1" Margin="5,0,0,0" />
+			</Grid>
+
+			<CheckBox x:Name="CheckBoxGildong" Content="To Gildong" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
+			<CheckBox x:Name="CheckBoxYoungjae" Content="To Youngjae" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top"/>
+			<TextBox x:Name="TextBoxMessage" HorizontalAlignment="Left" Height="23" Margin="10,105,0,0" TextWrapping="Wrap" Text="hello" VerticalAlignment="Top" Width="148"/>
+			<TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="55,0,0,0" TextWrapping="Wrap" Text="Gildong" VerticalAlignment="Top"/>
+			<TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="189,0,0,0" TextWrapping="Wrap" Text="Youngjae" VerticalAlignment="Top"/>
 		</Grid>
+		<TextBlock x:Name="TextBlockLog" Grid.Row="1" TextWrapping="Wrap" Text="log here..." VerticalAlignment="Bottom" Width="586" Margin="0,0,0,3"/>
 
 	</Grid>
 </Window>
