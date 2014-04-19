@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -70,10 +69,9 @@ namespace AzureServiceBusDemo
 		private void creatUsernameSubscription(NamespaceManager namespaceManager, string username)
 		{
 			if (namespaceManager.SubscriptionExists(TopicName, username))
-			{
 				namespaceManager.DeleteSubscription(TopicName, username);
-			}
-			// Create a "HighMessages" filtered subscription
+
+			// target 프로퍼티가 사용자 이름과 같을 경우 수신.
 			var filter = new SqlFilter("target LIKE '" + username + "'");
 
 			namespaceManager.CreateSubscription(TopicName, username, filter);
@@ -118,7 +116,6 @@ namespace AzureServiceBusDemo
 		{
 			public void ReceiveNewsMessages(ListBox listBox, string username)
 			{
-				// For PeekLock mode (default) where applications require "at least once" delivery of messages 
 				var subscriptionClient =
 					SubscriptionClient.CreateFromConnectionString(_connectionString, TopicName, username);
 				while (true)
@@ -134,12 +131,11 @@ namespace AzureServiceBusDemo
 							if (listBox != null)
 								listBox.Dispatcher.BeginInvoke(new Action(() => listBox.Items.Add(result)));
 
-							// Further custom message processing could go here...
 							message.Complete();
 						}
 						else
 						{
-							//no more messages in the subscription
+							// 무한루프 0.1초 휴식.
 							Thread.Sleep(100);
 						}
 					}
