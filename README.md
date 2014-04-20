@@ -1,10 +1,1 @@
-AzureServiceBusDemo
-===================
-
-A Demo application for Microsoft Korea TechDays Seminar (2014-04-19)
-
-##Requirement.##
- - Visual Studio 2013 (.NET 4.5 based WPF)
- - Azure account (Service Bus)
-
-
+Azure Service Bus Topic Demo===================A Demo application for Microsoft Korea TechDays Seminar  마이크로소프트 테크데이즈 세미나에 활용된 데모 어플리케이션##Requirements## - Visual Studio 2013 (.NET 4.5 based WPF) - Azure account (Service Bus)##How to Use## 1. Create Service Bus in Azure if you don't have one.   2. Create a Topic with name "news".   3. Open this application solution file(.sln) in Visual Studio 2013 or higher, and just click the Debug button in Visual Studio.   4. Once the app is executed, copy and paste Service Bus connection string at the top of the app.   5. Tick checkboxes at the leftside of the app and click "Send" button. The message will be transfered via Service Bus, and received message will be displayed at the one of two lists.   *Note that the app may not respond immediately when you click Send command at the first time (apprx. 10 seconds delay). This is because, the required .Net library is not loaded yet.*  ##Seminar information##Date: 2014-04-19  URL: [http://www.microsoft.com/ko-kr/events/techdaysminisat/default.aspx](http://www.microsoft.com/ko-kr/events/techdaysminisat/default.aspx)  Presentation (Korean): [http://www.slideshare.net/youngjaekim58/20140403-tech-daysazurenotificationhubservicebus](http://www.slideshare.net/youngjaekim58/20140403-tech-daysazurenotificationhubservicebus)
